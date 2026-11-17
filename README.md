@@ -4,7 +4,9 @@ A Rust + SDL2 simulation of self-driving cars crossing a four-way intersection *
 
 ## Demo
 
-https://github.com/yousif-gh/smart-road/raw/main/demo.mp4
+![Smart Road demo](demo.gif)
+
+[Full-quality video (MP4)](demo.mp4)
 
 ## How it works
 
