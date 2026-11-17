@@ -39,11 +39,11 @@ When the simulation ends, a window shows:
 
 ## Running
 
-Requires Rust (2024 edition) and the SDL2 + SDL2_ttf development libraries.
+Requires Rust (2024 edition) and the SDL2, SDL2_ttf and SDL2_image development libraries.
 
 ```bash
 # Debian/Ubuntu
-sudo apt install libsdl2-dev libsdl2-ttf-dev
+sudo apt install libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev
 
 cargo run --release
 ```

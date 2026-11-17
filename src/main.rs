@@ -8,11 +8,11 @@ use sdl2::event::Event;
 use sdl2::keyboard::Keycode;
 use sdl2::rect::Rect;
 use sdl2::rwops::RWops;
-use sdl2::surface::Surface;
+use sdl2::image::ImageRWops;
 use std::time::{Duration, Instant};
 use vehicle::{CAR_LEN, CAR_W, Dir, Route, SPRITE_COUNT, Vehicle, can_spawn};
 
-const CAR_SHEET: &[u8] = include_bytes!("../assets/cars.bmp");
+const CAR_SHEET: &[u8] = include_bytes!("../assets/cars.png");
 const SHEET_W: u32 = 40;
 const SHEET_H: u32 = 68;
 
@@ -42,8 +42,8 @@ fn main() -> Result<(), String> {
 
     sdl2::hint::set("SDL_RENDER_SCALE_QUALITY", "1");
     let tc = canvas.texture_creator();
-    let sheet = Surface::load_bmp_rw(&mut RWops::from_bytes(CAR_SHEET)?)?;
-    assert_eq!(sheet.width(), SHEET_W * SPRITE_COUNT as u32, "cars.bmp size");
+    let sheet = RWops::from_bytes(CAR_SHEET)?.load_png()?;
+    assert_eq!(sheet.width(), SHEET_W * SPRITE_COUNT as u32, "cars.png size");
     let sprites = tc
         .create_texture_from_surface(&sheet)
         .map_err(|e| e.to_string())?;
