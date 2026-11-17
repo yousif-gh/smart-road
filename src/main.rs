@@ -13,6 +13,7 @@ use std::time::{Duration, Instant};
 use vehicle::{CAR_LEN, CAR_W, Dir, Route, SPRITE_COUNT, Vehicle, can_spawn};
 
 const CAR_SHEET: &[u8] = include_bytes!("../assets/cars.png");
+const ICON: &[u8] = include_bytes!("../assets/icon.png");
 const SHEET_W: u32 = 40;
 const SHEET_H: u32 = 68;
 
@@ -28,11 +29,12 @@ fn try_spawn(cars: &mut Vec<Vehicle>, dir: Dir) {
 fn main() -> Result<(), String> {
     let sdl = sdl2::init()?;
     let video = sdl.video()?;
-    let window = video
+    let mut window = video
         .window("Smart Road", world::SIZE as u32, world::SIZE as u32)
         .position_centered()
         .build()
         .map_err(|e| e.to_string())?;
+    window.set_icon(RWops::from_bytes(ICON)?.load_png()?);
     let mut canvas = window
         .into_canvas()
         .present_vsync()

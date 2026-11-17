@@ -1,4 +1,4 @@
-# Smart Road
+# <img src="assets/icon.png" alt="Smart Road icon" width="40" align="center"> Smart Road
 
 A Rust + SDL2 simulation of self-driving cars crossing a four-way intersection **without traffic lights**. Instead of signals, a smart intersection manager reserves space inside the junction for each car, so vehicles pass without collisions and with as little waiting as possible.
 
